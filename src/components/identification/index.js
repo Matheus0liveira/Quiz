@@ -6,8 +6,7 @@ import {
   StyledInput,
   Text,
   DangerText,
-  ButtonSubmit,
-  Footer
+  ButtonSubmit
 } from './styles';
 
 

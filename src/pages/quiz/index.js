@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import Identification from '../../components/identification'
+import Identification from '../../components/identification';
+import useUser from '../../utils/useUser';
 
 import Footer  from './styles';
 
@@ -14,6 +15,9 @@ const Quiz = ({ quiz }) => {
   const [showDanger, setShowDanger] = useState(false);
 
 
+  const { user, setUser } = useUser();
+
+
 
   useEffect(() => {
 
@@ -21,6 +25,9 @@ const Quiz = ({ quiz }) => {
       setShowDanger(false);
     };
   }, [name]);
+
+
+  console.log(name, valueCategory, valueDificulty );
 
 
 
@@ -32,7 +39,13 @@ const Quiz = ({ quiz }) => {
     if (!name) {
 
       return setShowDanger(true);
+
     };
+
+    setUser({name,valueCategory,valueDificulty});
+
+
+    console.log(user);
 
   };
 
@@ -41,7 +54,7 @@ const Quiz = ({ quiz }) => {
       
       <Identification
         name={{ name, setName }}
-        cate  gory={{ valueCategory, setValueCategory }}
+        category={{ valueCategory, setValueCategory }}
         dificulty={{ valueDificulty, setValueDificulty }}
         submitForm={handleSubmit}
         showDanger={{ showDanger, setShowDanger }}
