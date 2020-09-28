@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { StyledIdentification, Description, Form, Text, ButtonSubmit } from './styles';
+import { StyledIdentification, Description, Form, Text, ButtonSubmit, Footer } from './styles';
 
 
 const Identification = () => {
@@ -13,20 +13,20 @@ const Identification = () => {
   }
   return (
     <div>
-      <Text tecTitle >Technological QUIZ</Text>
+      <Text tecTitle >TEQUIZ</Text>
       <StyledIdentification>
 
         <Form onSubmit={handleSubmit}>
           <span>
 
-            <Text label> Name</Text>
+            <Text label={true}> Name</Text>
             <input placeholder='Type your name' />
 
           </span>
 
           <span>
 
-            <Text label>Category</Text>
+            <Text label={true}>Category</Text>
             <select name="category" id="category">
               <option value="linux">Linux</option>
               <option value="devOps">DevOps</option>
@@ -41,7 +41,7 @@ const Identification = () => {
 
           <span>
 
-            <Text label>Dificulty</Text>
+            <Text label={true}>Dificulty</Text>
             <select name="dificulty" id="dificulty">
               <option value="easy">Easy</option>
               <option value="medium">Medium</option>
@@ -54,6 +54,8 @@ const Identification = () => {
         </Form>
 
       </StyledIdentification>
+
+      <Footer>Created By: <a target='_blank' href="https://github.com/Matheus0liveira"> Matheus Oliveira 💜</a> </Footer>
     </div>
   );
 };

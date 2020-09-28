@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyled = createGlobalStyle`
 
+
   :root {
     font-size: 62.5%;
   }
@@ -23,7 +24,7 @@ const GlobalStyled = createGlobalStyle`
     flex-direction: column;
     background: #282A36;
     color: #F8F8F2;
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Open Sans', sans-serif;
   }
 
   input,

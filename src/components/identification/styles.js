@@ -18,19 +18,20 @@ export const Form = styled.form`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 100%;
+  width: 100vw;
   height: 100%;
   padding: 2rem 0;
 
   span{
     margin: 2rem 0 0.5rem 0; 
-    width: 80%;
+    width: 30%;
 
     min-width: 30rem;
 
  
 
     input,select, option{
+        font-weight: bold;
         width: 100%;
         height:  5rem;
         padding: 1rem;
@@ -62,11 +63,9 @@ export const Text = styled.h1`
 
   ${props => props.tecTitle && css`
 
-
+  font-size: min(14vw, 6rem); 
   margin-bottom: 10rem;  
   color: #F8F8F2;
-
-  font-size: min(8vw, 6rem);
   text-align: center;
 
   `};
@@ -75,8 +74,7 @@ export const Text = styled.h1`
 
 
 export const ButtonSubmit = styled.button`
-
-  width: 80%;
+  width: 30%;
   min-width: 30rem;
   height:  5rem;
   padding: 0 2rem;
@@ -94,6 +92,29 @@ export const ButtonSubmit = styled.button`
 
     background: #44475A;
     color: #BD93F9;
+
+  }
+`;
+
+export const Footer = styled.footer`
+
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem 0;
+
+  a{
+    text-decoration: none;
+    color: #BD93F9;
+    transition: opacity .2s ease;
+
+    &:hover{
+      opacity: 0.5;
+    }
 
   }
 `;
