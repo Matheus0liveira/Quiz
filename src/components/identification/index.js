@@ -1,19 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-import { StyledIdentification, Description, Form, Text, ButtonSubmit, Footer } from './styles';
+import { 
+  StyledIdentification, 
+  Form, 
+  StyledInput, 
+  Text, 
+  DangerText, 
+  ButtonSubmit, 
+  Footer 
+} from './styles';
 
 
 const Identification = () => {
-  const [valueCategory, setValueCategory] = useState('');
+  const [name, setName] = useState('');
+  const [valueCategory, setValueCategory] = useState('linux');
+  const [valueDificulty, setValueDificulty] = useState('easy');
+  const [showDanger, setShowDanger] = useState(false);
+
+  useEffect(() => {
+
+    if(name ){
+      setShowDanger(false);
+    };
+  },[name]);
 
   const handleSubmit = (event) => {
 
     event.preventDefault();
-    alert('Clicked');
+  
 
-  }
+    if(!name) {
+      
+      return setShowDanger(true);
+    };
 
-  console.log(valueCategory);
+    console.log({name, valueCategory, valueDificulty});
+
+  };
+
+
   return (
     <div>
       <Text tecTitle='true' >TEQUIZ</Text>
@@ -25,16 +50,26 @@ const Identification = () => {
         <Form onSubmit={handleSubmit}>
 
           <span>
-
             <Text label='true'> Name</Text>
-            <input placeholder='Type your name' />
+            
+            <DangerText>{ showDanger && 'Name is required!'}</DangerText>
+            <StyledInput
+              placeholder='Type your name'
+              danger={showDanger}
+              onChange={(event) => setName(event.target.value)}
+            />
 
           </span>
 
           <span>
 
             <Text label='true'>Category</Text>
-            <select name="category" id="category">
+
+            <select
+              name="category"
+              id="category"
+              onChange={(event) => setValueCategory(event.target.value)}
+            >
               <option value="linux">Linux</option>
               <option value="devOps">DevOps</option>
               <option value="networking">Networking</option>
@@ -49,7 +84,12 @@ const Identification = () => {
           <span>
 
             <Text label='true'>Dificulty</Text>
-            <select name="dificulty" id="dificulty">
+            <select
+              name="dificulty"
+              id="dificulty"
+              onChange={(event) => setValueDificulty(event.target.value)}
+
+            >
               <option value="easy">Easy</option>
               <option value="medium">Medium</option>
               <option value="hard">Hard</option>
@@ -62,7 +102,15 @@ const Identification = () => {
 
       </StyledIdentification>
 
-      <Footer> <p>Created By: <a target='_blank' href="https://github.com/Matheus0liveira"> Matheus Oliveira 💜</a> </p></Footer>
+      <Footer>
+        <p>
+
+          Created By:
+          
+          <a target='_blank' href="https://github.com/Matheus0liveira"> Matheus Oliveira 💜</a>
+
+        </p>
+      </Footer>
     </div>
   );
 };

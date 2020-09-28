@@ -30,7 +30,7 @@ export const Form = styled.form`
 
     
 
-    input,select, option{
+    select, option{
         font-weight: bold;
         width: 100%;
         height:  5rem;
@@ -41,20 +41,44 @@ export const Form = styled.form`
         color: #44475A;
 
 
-        ::placeholder{
-        color: #44475A;
-
-        }
+       
     }
 
   }
   
 `;
 
+export const StyledInput = styled.input`
+
+  font-weight: bold;
+  width: 100%;
+  height:  5rem;
+  padding: 1rem;
+  margin-top: 1rem ;
+  background: #F8F8F2;
+  border: 0;
+  color: #44475A;
+  ::placeholder{
+    color:  #44475A;
+
+    };
+ ${props => props.danger && css` 
+
+  border: 0.3rem solid #FF5555;
+
+  ::placeholder{
+      color:  #FF5555;
+
+      };
+   `
+  }; 
+
+`;
+
 
 export const Text = styled.h1`
 
-  ${props => props.label && css`
+${props => props.label && css`
 
     font-size: 2rem;
     color: #F8F8F2;
@@ -62,7 +86,7 @@ export const Text = styled.h1`
   `};
 
 
-  ${props => props.tecTitle && css`
+${props => props.tecTitle && css`
 
     font-size: min(14vw, 6rem); 
     margin-bottom: 10rem;  
@@ -70,7 +94,7 @@ export const Text = styled.h1`
     text-align: center;
 
   `};
-  ${props => props.description && css`
+${props => props.description && css`
 
     text-align: center;
     font-weight: lighter;
@@ -81,55 +105,61 @@ export const Text = styled.h1`
 
 
   `};
-  
+
 `;
 
 
 export const ButtonSubmit = styled.button`
-  width: 30%;
-  min-width: 30rem;
-  height:  5rem;
-  padding: 0 2rem;
-  margin-top: 4rem;
-  background: #BD93F9;
-  color: #44475A;
-  border: 0;
-  font-weight: bold;
+width: 30%;
+min-width: 30rem;
+height: 5rem;
+padding: 0 2rem;
+margin-top: 4rem;
+background: #BD93F9;
+color: #44475A;
+border: 0;
+font-weight: bold;
 
 
-  cursor: pointer;
-  transition: all .4s ease;
+cursor: pointer;
+transition: all .4s ease;
 
   &:hover{
 
-    background: #44475A;
-    color: #BD93F9;
+  background: #44475A;
+  color: #BD93F9;
 
-  }
+}
 `;
 
 export const Footer = styled.footer`
 
-  display:flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 1rem 0;
-  p,a{
-    font-size: 1.4rem;
-  }
+display: flex;
+align-items: center;
+justify-content: center;
+position: fixed;
+bottom: 0;
+left: 0;
+right: 0;
+padding: 1rem 0;
+p, a{
+  font-size: 1.4rem;
+}
 
-  a{
-    text-decoration: none;
-    color: #BD93F9;
-    transition: opacity .2s ease;
+a{
+  text-decoration: none;
+  color: #BD93F9;
+  transition: opacity .2s ease;
 
     &:hover{
-      opacity: 0.5;
-    }
-
+    opacity: 0.5;
   }
+
+}
+`;
+
+export const DangerText = styled.p`
+
+  margin: 1rem 0 -1rem 0;
+  color: #FF5555;
 `;
