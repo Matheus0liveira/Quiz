@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 
 
-export const Text = styled.h1`
+const Text = styled.h1`
     font-size: 2.5rem;
 
     span{
@@ -33,3 +33,5 @@ export const StyledA = styled.a`
     opacity: 0.5;
   }
 `;
+
+export default Text;

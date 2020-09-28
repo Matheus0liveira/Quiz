@@ -39,9 +39,6 @@ export const Form = styled.form`
         background: #F8F8F2;
         border: 0;
         color: #44475A;
-
-
-       
     }
 
   }
@@ -82,6 +79,8 @@ ${props => props.label && css`
 
     font-size: 2rem;
     color: #F8F8F2;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal;
 
   `};
 
@@ -92,14 +91,17 @@ ${props => props.tecTitle && css`
     margin-bottom: 10rem;  
     color: #F8F8F2;
     text-align: center;
+    font-weight: bold;
 
   `};
 ${props => props.description && css`
 
     text-align: center;
-    font-weight: lighter;
     font-size: min(4vw, 1.9rem); 
     color: #BD93F9;
+
+    font-weight: bold;
+    letter-spacing: 0.1rem;
     
 
 
@@ -132,34 +134,11 @@ transition: all .4s ease;
 }
 `;
 
-export const Footer = styled.footer`
-
-display: flex;
-align-items: center;
-justify-content: center;
-position: fixed;
-bottom: 0;
-left: 0;
-right: 0;
-padding: 1rem 0;
-p, a{
-  font-size: 1.4rem;
-}
-
-a{
-  text-decoration: none;
-  color: #BD93F9;
-  transition: opacity .2s ease;
-
-    &:hover{
-    opacity: 0.5;
-  }
-
-}
-`;
 
 export const DangerText = styled.p`
 
   margin: 1rem 0 -1rem 0;
   color: #FF5555;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
 `;

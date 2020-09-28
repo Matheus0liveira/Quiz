@@ -1,0 +1,1 @@
+{"ast":null,"code":"var __jsx = React.createElement;\nimport React from 'react';\nimport GlobalStyled from '../assets/styles/globalStyled';\n\nconst MyApp = ({\n  Component,\n  pageProps\n}) => {\n  return __jsx(React.Fragment, null, __jsx(GlobalStyled, null), __jsx(Component, pageProps));\n};\n\nexport default MyApp;","map":null,"metadata":{},"sourceType":"module"}

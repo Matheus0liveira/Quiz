@@ -1,62 +1,38 @@
 import React, { useState, useEffect } from 'react';
 
-import { 
-  StyledIdentification, 
-  Form, 
-  StyledInput, 
-  Text, 
-  DangerText, 
-  ButtonSubmit, 
-  Footer 
+import {
+  StyledIdentification,
+  Form,
+  StyledInput,
+  Text,
+  DangerText,
+  ButtonSubmit,
+  Footer
 } from './styles';
 
 
-const Identification = () => {
-  const [name, setName] = useState('');
-  const [valueCategory, setValueCategory] = useState('linux');
-  const [valueDificulty, setValueDificulty] = useState('easy');
-  const [showDanger, setShowDanger] = useState(false);
-
-  useEffect(() => {
-
-    if(name ){
-      setShowDanger(false);
-    };
-  },[name]);
-
-  const handleSubmit = (event) => {
-
-    event.preventDefault();
-  
-
-    if(!name) {
-      
-      return setShowDanger(true);
-    };
-
-    console.log({name, valueCategory, valueDificulty});
-
-  };
+const Identification = ({ name, category, dificulty, showDanger, submitForm }) => {
 
 
   return (
     <div>
+      {console.log('refresh')}
       <Text tecTitle='true' >TEQUIZ</Text>
       <Text description='true'>To start the game, fill out the form <span> {':)'}</span></Text>
 
 
       <StyledIdentification>
 
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={submitForm}>
 
           <span>
             <Text label='true'> Name</Text>
-            
-            <DangerText>{ showDanger && 'Name is required!'}</DangerText>
+
+            <DangerText>{showDanger.showDanger && 'Name is required!'}</DangerText>
             <StyledInput
               placeholder='Type your name'
-              danger={showDanger}
-              onChange={(event) => setName(event.target.value)}
+              danger={showDanger.showDanger}
+              onChange={(event) => name.setName(event.target.value)}
             />
 
           </span>
@@ -68,7 +44,7 @@ const Identification = () => {
             <select
               name="category"
               id="category"
-              onChange={(event) => setValueCategory(event.target.value)}
+              onChange={(event) => category.setValueCategory(event.target.value)}
             >
               <option value="linux">Linux</option>
               <option value="devOps">DevOps</option>
@@ -87,7 +63,7 @@ const Identification = () => {
             <select
               name="dificulty"
               id="dificulty"
-              onChange={(event) => setValueDificulty(event.target.value)}
+              onChange={(event) => dificulty.setValueDificulty(event.target.value)}
 
             >
               <option value="easy">Easy</option>
@@ -102,15 +78,7 @@ const Identification = () => {
 
       </StyledIdentification>
 
-      <Footer>
-        <p>
 
-          Created By:
-          
-          <a target='_blank' href="https://github.com/Matheus0liveira"> Matheus Oliveira 💜</a>
-
-        </p>
-      </Footer>
     </div>
   );
 };

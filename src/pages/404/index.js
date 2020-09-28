@@ -5,15 +5,15 @@ import { FiArrowLeft } from 'react-icons/fi'
 
 
 
-import { Text, StyledA } from './styles';
+import Text, { StyledA } from './styles';
 
 const Custom404 = () => {
 
   return (
     <>
       <Text>This page not found  <span>{" :( "}</span> </Text>
-      <Link href='/home'>
-        <StyledA ><FiArrowLeft />Back to Home Page</StyledA>
+      <Link href='/quiz'>
+        <StyledA ><FiArrowLeft />Back to Quiz Page</StyledA>
       </Link>
 
 

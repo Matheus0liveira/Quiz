@@ -24,10 +24,10 @@
       "static/chunks/webpack.js",
       "static/chunks/pages/_error.js"
     ],
-    "/home": [
+    "/quiz": [
       "static/chunks/main.js",
       "static/chunks/webpack.js",
-      "static/chunks/pages/home.js"
+      "static/chunks/pages/quiz.js"
     ]
   },
   "ampFirstPages": []

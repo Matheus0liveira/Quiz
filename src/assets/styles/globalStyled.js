@@ -24,7 +24,7 @@ const GlobalStyled = createGlobalStyle`
     flex-direction: column;
     background: #282A36;
     color: #F8F8F2;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Rubik', sans-serif;
   }
 
   input,
