@@ -9,7 +9,6 @@ const UserProvider = ({ children }) => {
   const [user, setUser] = useState(
     {
       name: '',
-      category: '',
       dificulty: ''
     }
   );

@@ -10,8 +10,7 @@ const Quiz = () => {
 
 
   const [name, setName] = useState('');
-  const [valueCategory, setValueCategory] = useState('linux');
-  const [valueDificulty, setValueDificulty] = useState('easy');
+  const [valueDificulty, setValueDificulty] = useState('5');
   const [showDanger, setShowDanger] = useState(false);
 
 
@@ -41,7 +40,10 @@ const Quiz = () => {
 
     };
 
-    setUser({name,valueCategory,valueDificulty});
+
+
+    
+    setUser({name,dificulty: valueDificulty});
 
     return router.push('/quiz');
 
@@ -53,7 +55,6 @@ const Quiz = () => {
       
       <Identification
         name={{ name, setName }}
-        category={{ valueCategory, setValueCategory }}
         dificulty={{ valueDificulty, setValueDificulty }}
         submitForm={handleSubmit}
         showDanger={{ showDanger, setShowDanger }}

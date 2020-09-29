@@ -10,14 +10,14 @@ import {
 } from './styles';
 
 
-const Identification = ({ name, category, dificulty, showDanger, submitForm }) => {
+const Identification = ({ name, dificulty, showDanger, submitForm }) => {
 
 
 
   return (
     <div>
       <Text tecTitle='true' >TEC.QUIZ</Text>
-      <Text description='true'>To start the game, fill out the form <span> {':)'}</span></Text>
+      <Text description='true'>Your technology quiz <span> {':)'}</span></Text>
 
 
       <StyledIdentification>
@@ -36,25 +36,6 @@ const Identification = ({ name, category, dificulty, showDanger, submitForm }) =
 
           </span>
 
-          <span>
-
-            <Text label='true'>Category</Text>
-
-            <select
-              name="category"
-              id="category"
-              onChange={(event) => category.setValueCategory(event.target.value)}
-            >
-              <option value="linux">Linux</option>
-              <option value="devOps">DevOps</option>
-              <option value="networking">Networking</option>
-              <option value="programming">Programming</option>
-              <option value="cloud">Cloud</option>
-              <option value="docker">Docker</option>
-              <option value="kubernetes">Kubernetes</option>
-            </select>
-
-          </span>
 
           <span>
 
@@ -65,9 +46,9 @@ const Identification = ({ name, category, dificulty, showDanger, submitForm }) =
               onChange={(event) => dificulty.setValueDificulty(event.target.value)}
 
             >
-              <option value="1">Easy</option>
-              <option value="5">Medium</option>
-              <option value="10">Hard</option>
+              <option value="5">Easy</option>
+              <option value="10">Medium</option>
+              <option value="20">Hard</option>
             </select>
 
           </span>

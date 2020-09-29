@@ -88,7 +88,7 @@ ${props => props.label && css`
 ${props => props.tecTitle && css`
 
     font-size: min(14vw, 6rem); 
-    margin-bottom: 10rem;  
+    margin-bottom: 2rem;  
     color: #F8F8F2;
     text-align: center;
     font-weight: bold;
@@ -100,7 +100,7 @@ ${props => props.description && css`
     font-size: min(4vw, 1.9rem); 
     color: #BD93F9;
 
-    font-weight: bold;
+    font-weight: lighter;
     letter-spacing: 0.1rem;
     
 
