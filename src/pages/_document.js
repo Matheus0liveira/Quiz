@@ -31,7 +31,8 @@ export default class MyDocument extends Document {
       <Html>
         <Head lang="pt-br">
           <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Rubik:wght@300;400;700&display=swap" rel="stylesheet" />
-          <title>TECQUIZ</title>
+
+          <title>TEC.QUIZ</title>
         </Head>
         <body>
           <Main />

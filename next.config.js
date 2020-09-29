@@ -5,9 +5,15 @@ module.exports = {
     return [
       {
         source: '/',
-        destination: '/quiz',
+        destination: '/home',
         permanent: true
       }
     ]
+  },
+
+  env: {
+    tokenAPI: 'lCYLQgZXpyARHxOsGt6qe59DiLJawH8CbOIwDLdl'
   }
-}
+
+
+};

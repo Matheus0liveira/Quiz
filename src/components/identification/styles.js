@@ -121,17 +121,17 @@ background: #BD93F9;
 color: #44475A;
 border: 0;
 font-weight: bold;
-
-
 cursor: pointer;
 transition: all .4s ease;
 
-  &:hover{
+
+&:hover{
 
   background: #44475A;
   color: #BD93F9;
 
-}
+};
+
 `;
 
 

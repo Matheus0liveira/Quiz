@@ -12,7 +12,7 @@ const Custom404 = () => {
   return (
     <>
       <Text>This page not found  <span>{" :( "}</span> </Text>
-      <Link href='/quiz'>
+      <Link href='/home'>
         <StyledA ><FiArrowLeft />Back to Quiz Page</StyledA>
       </Link>
 

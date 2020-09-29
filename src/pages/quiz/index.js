@@ -1,96 +1,48 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+
 import axios from 'axios';
 
-import Identification from '../../components/identification';
-import useUser from '../../utils/useUser';
+import useUSer from '../../utils/useUser';
 
-import Footer  from './styles';
 
 const Quiz = ({ quiz }) => {
 
-
-  const [name, setName] = useState('');
-  const [valueCategory, setValueCategory] = useState('linux');
-  const [valueDificulty, setValueDificulty] = useState('easy');
-  const [showDanger, setShowDanger] = useState(false);
-
-
-  const { user, setUser } = useUser();
-
-
-
-  useEffect(() => {
-
-    if (name) {
-      setShowDanger(false);
-    };
-  }, [name]);
-
-
-  console.log(name, valueCategory, valueDificulty );
-
-
-
-  const handleSubmit = (event) => {
-
-    event.preventDefault();
-
-
-    if (!name) {
-
-      return setShowDanger(true);
-
-    };
-
-    setUser({name,valueCategory,valueDificulty});
-
-
-    console.log(user);
-
-  };
-
+  const { user } = useUSer();
   return (
     <>
-      
-      <Identification
-        name={{ name, setName }}
-        category={{ valueCategory, setValueCategory }}
-        dificulty={{ valueDificulty, setValueDificulty }}
-        submitForm={handleSubmit}
-        showDanger={{ showDanger, setShowDanger }}
-      />
-
-      
+      <h1>Quiz</h1>
       {console.log(quiz)}
 
-      
-      <Footer>
-        <p>
 
-          Created By:
-          
-          <a target='_blank' href="https://github.com/Matheus0liveira"> Matheus Oliveira 💜</a>
 
-        </p>
-      </Footer>
+      <div >
+
+        <h1>{quiz[1].question}</h1>
+        <p>{quiz[1].answers.answer_a}</p>
+        <p>{quiz[1].answers.answer_b}</p>
+        <p>{quiz[1].answers.answer_c}</p>
+        <p>{quiz[1].answers.answer_d}</p>
+        <p>{quiz[1].answers.answer_e}</p>
+        <p>{quiz[1].answers.answer_f}</p>
+        <hr />
+      </div>
+
     </>
   );
 };
 
+export async function getStaticProps() {
 
-export async function getServerSideProps(){
 
-  
   const result = await axios.get('https://quizapi.io/api/v1/questions', {
 
-    headers: { 'X-Api-Key': 'lCYLQgZXpyARHxOsGt6qe59DiLJawH8CbOIwDLdl' },
+    headers: { 'X-Api-Key': process.env.tokenAPI },
 
   });
 
-  const quiz =  result.data;
+  const quiz = result.data;
 
-  return { props: {quiz} };
+  return { props: { quiz } };
 };
-
 
 export default Quiz;

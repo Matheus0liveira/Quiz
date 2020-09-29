@@ -13,10 +13,10 @@ import {
 const Identification = ({ name, category, dificulty, showDanger, submitForm }) => {
 
 
+
   return (
     <div>
-      {console.log('refresh')}
-      <Text tecTitle='true' >TEQUIZ</Text>
+      <Text tecTitle='true' >TEC.QUIZ</Text>
       <Text description='true'>To start the game, fill out the form <span> {':)'}</span></Text>
 
 
@@ -65,14 +65,14 @@ const Identification = ({ name, category, dificulty, showDanger, submitForm }) =
               onChange={(event) => dificulty.setValueDificulty(event.target.value)}
 
             >
-              <option value="easy">Easy</option>
-              <option value="medium">Medium</option>
-              <option value="hard">Hard</option>
+              <option value="1">Easy</option>
+              <option value="5">Medium</option>
+              <option value="10">Hard</option>
             </select>
 
           </span>
 
-          <ButtonSubmit type='submit'>START GAME</ButtonSubmit>
+          <ButtonSubmit danger={showDanger} type='submit'>START GAME</ButtonSubmit>
         </Form>
 
       </StyledIdentification>
