@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-import Identification from '../../components/identification';
+import Identification from '../../components/Identification';
 import useUser from '../../utils/useUser';
 
 import Footer  from './styles';
@@ -39,17 +39,14 @@ const Quiz = () => {
       return setShowDanger(true);
 
     };
-
-
-
     
     setUser({name,dificulty: valueDificulty});
 
     return router.push('/quiz');
-
-
   };
 
+
+  
   return (
     <>
       
