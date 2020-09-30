@@ -48,10 +48,38 @@ const Quiz = ({ quiz }) => {
 
       if (index < user.dificulty) {
 
+        const newAnsers = [
+          {
+            id: 1,
+            quest: quiz.answers.answer_a
+          },
+          {
+            id: 2,
+            quest: quiz.answers.answer_b
+          },
+          {
+            id: 3,
+            quest: quiz.answers.answer_c
+          },
+          {
+            id: 4,
+            quest: quiz.answers.answer_d
+          },
+          {
+            id: 5,
+            quest: quiz.answers.answer_e
+          },
+          {
+            id: 6,
+            quest: quiz.answers.answer_f
+          },
+        ].filter(answer => answer.quest !== null)
+
+
         return {
 
           question: quiz.question,
-          answers: quiz.answers,
+          answers: newAnsers,
           correct_answers: quiz.correct_answers
 
         };
@@ -66,8 +94,6 @@ const Quiz = ({ quiz }) => {
 
   const handleNextQuest = () => {
 
-
-    console.log('Clicked');
 
     countQuestion < quizQuestion.length - 1
 
@@ -98,7 +124,7 @@ const Quiz = ({ quiz }) => {
           <Question
             countQuestion={countQuestion}
             question={quizQuestion[countQuestion].question}
-            answers={quizQuestion[countQuestion].answers}
+            answers={[quizQuestion[countQuestion].answers]}
             // correct_answers={quizQuestion[countQuestion].correct_answers}
             nextQuestion={handleNextQuest}
           />
