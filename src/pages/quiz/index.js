@@ -14,7 +14,7 @@ const Quiz = ({ quiz }) => {
 
     question: '',
     answers: {
-      answer_a: "",
+      answer_a_correct: "",
       answer_b: "",
       answer_c: "",
       answer_d: "",
@@ -44,78 +44,47 @@ const Quiz = ({ quiz }) => {
 
     };
 
-    const newQuiz = quiz.map((quiz, index) => {
-
-      if (index < user.dificulty) {
-
-        const newAnsers = [
-          {
-            id: 1,
-            quest: quiz.answers.answer_a
-          },
-          {
-            id: 2,
-            quest: quiz.answers.answer_b
-          },
-          {
-            id: 3,
-            quest: quiz.answers.answer_c
-          },
-          {
-            id: 4,
-            quest: quiz.answers.answer_d
-          },
-          {
-            id: 5,
-            quest: quiz.answers.answer_e
-          },
-          {
-            id: 6,
-            quest: quiz.answers.answer_f
-          },
-        ].filter(answer => answer.quest !== null)
-
-
-        return {
-
-          question: quiz.question,
-          answers: newAnsers,
-          correct_answers: quiz.correct_answers
-
-        };
-      };
-
-    }).filter(quiz => quiz !== undefined);
-
-    return setQuizQuestion(newQuiz);
-
-
   }, [user]);
 
+  useEffect(() => {
+
+    const newQuiz = {
+
+      question: quiz[countQuestion].question,
+      answers: quiz[countQuestion].answers,
+      correct_answers: quiz[countQuestion].correct_answers
+
+    };
+
+    setQuizQuestion(newQuiz);
+    setCountQuestion(prevState => prevState + 1);
+
+
+
+  }, []);
+
+
+
   const handleNextQuest = () => {
+    if (countQuestion < user.dificulty) {
+
+      const newQuiz = {
+
+        question: quiz[countQuestion].question,
+        answers: quiz[countQuestion].answers,
+        correct_answers: quiz[countQuestion].correct_answers
+
+      };
 
 
-    countQuestion < quizQuestion.length - 1
-
-      ?
-
-      (
-        setCountQuestion(prevState => prevState + 1)
-      )
-
-      :
-
-      (
-        setShowResults(true)
-      )
-
+      setCountQuestion(prevState => prevState + 1);
+      setQuizQuestion(newQuiz);
+    };
 
   };
 
   return (
     <>
-      {console.log(quizQuestion)}
-      {/* {console.log(quiz)} */}
 
       {!showResults
         ?
@@ -123,8 +92,8 @@ const Quiz = ({ quiz }) => {
 
           <Question
             countQuestion={countQuestion}
-            question={quizQuestion[countQuestion].question}
-            answers={[quizQuestion[countQuestion].answers]}
+            question={quizQuestion.question}
+            answers={quizQuestion.answers}
             // correct_answers={quizQuestion[countQuestion].correct_answers}
             nextQuestion={handleNextQuest}
           />
@@ -144,14 +113,6 @@ const Quiz = ({ quiz }) => {
       <div >
 
 
-        {/* <h1>{quiz[1].question}</h1>
-        <p>{quiz[1].answers.answer_a}</p>
-        <p>{quiz[1].answers.answer_b}</p>
-        <p>{quiz[1].answers.answer_c}</p>
-        <p>{quiz[1].answers.answer_d}</p>
-        <p>{quiz[1].answers.answer_e}</p>
-        <p>{quiz[1].answers.answer_f}</p> */}
-
 
       </div>
 
@@ -162,16 +123,56 @@ const Quiz = ({ quiz }) => {
 export async function getStaticProps() {
 
 
-  const result = await axios.get('https://quizapi.io/api/v1/questions', {
+  const { data } = await axios.get('https://quizapi.io/api/v1/questions', {
 
 
     headers: { 'X-Api-Key': process.env.tokenAPI },
 
 
-
   });
 
-  const quiz = result.data;
+  const newQuiz = data.map(quiz => {
+
+    return {
+
+      id: quiz.id,
+      question: quiz.question,
+      answers: [
+        {
+          id: 1,
+          quest: quiz.answers.answer_a,
+        },
+        {
+          id: 2,
+          quest: quiz.answers.answer_b,
+        },
+        {
+          id: 3,
+          quest: quiz.answers.answer_c,
+        },
+        {
+          id: 4,
+          quest: quiz.answers.answer_d,
+        },
+        {
+          id: 5,
+          quest: quiz.answers.answer_e,
+        },
+        {
+          id: 6,
+          quest: quiz.answers.answer_f,
+        },
+      ].filter(answer => answer.quest !== null),
+      correct_answers: quiz.correct_answers,
+      multiple_correct_answers: quiz.multiple_correct_answers,
+      category: quiz.category,
+
+    }
+  });
+
+
+
+  const quiz = newQuiz;
 
   return { props: { quiz } };
 };
